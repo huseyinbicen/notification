@@ -6,6 +6,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @Configuration
 @EnableScheduling
-@EntityScan("com.hayalet.notification.domain")
+@EntityScan("com.hus.notification.domain")
 public class NotificationConfig {
 }

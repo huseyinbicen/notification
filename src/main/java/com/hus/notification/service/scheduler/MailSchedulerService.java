@@ -20,7 +20,7 @@ import java.util.concurrent.Future;
 
 @Service
 @Transactional
-@ConditionalOnProperty(value = "hayalet.sending.mail.enabled", matchIfMissing = true, havingValue = "true")
+//@ConditionalOnProperty(value = "hus.sending.mail.enabled", matchIfMissing = true, havingValue = "true")
 class MailSchedulerService {
     public static final String INSTANCE_UUID = UUID.randomUUID().toString();
     private static final Logger LOGGER = LoggerFactory.getLogger(MailSchedulerService.class);
@@ -31,7 +31,7 @@ class MailSchedulerService {
     @Autowired
     private MailSemaphoreRepository mailSemaphoreRepository;
 
-    @Scheduled(fixedDelayString = "${mark.fixeddelay}")
+   // @Scheduled(fixedDelayString = "${mark.fixeddelay}")
     @Transactional(isolation = Isolation.READ_UNCOMMITTED, propagation = Propagation.REQUIRES_NEW)
     public void mark() {
         try {
@@ -41,7 +41,7 @@ class MailSchedulerService {
         }
     }
 
-    @Scheduled(fixedDelayString = "${unmark.fixeddelay}")
+   // @Scheduled(fixedDelayString = "${unmark.fixeddelay}")
     @Transactional(isolation = Isolation.READ_UNCOMMITTED, propagation = Propagation.REQUIRES_NEW)
     public void unMark() {
         try {
@@ -51,7 +51,7 @@ class MailSchedulerService {
         }
     }
 
-    @Scheduled(fixedDelayString = "${execute.fixeddelay}")
+   // @Scheduled(fixedDelayString = "${execute.fixeddelay}")
     @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRES_NEW)
     public void execute() {
         try {

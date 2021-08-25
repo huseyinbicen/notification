@@ -1,4 +1,4 @@
-package com.hayalet.notification;
+package com.hus.notification;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,0 +1,38 @@
+server:
+  port: 8082
+execute:
+  fixeddelay: 2000
+hayalet:
+  sending:
+    mail:
+      enabled: false
+mark:
+  fixeddelay: 5000
+spring:
+  datasource:
+    password: root
+    url: jdbc:mysql://localhost:3306/notificationservice
+    username: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+      use-new-id-generator-mappings: true
+    show-sql: true
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    password: 4796226.Hb
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    protocol: smtpx
+    test-connection: false
+    username: hseyn00@gmail.com
+unmark:
+  fixeddelay: 30000

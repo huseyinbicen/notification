@@ -8,10 +8,10 @@
         <version>2.2.4.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.hayalet</groupId>
+    <groupId>com.hus</groupId>
     <artifactId>notification</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>notificationservice</name>
+    <name>notification</name>
     <description>It's a mail service for other services</description>
 
     <properties>
