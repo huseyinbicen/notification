@@ -12,8 +12,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class MailSemaphoreServiceImpl implements MailSemaphoreService {
+
     @Autowired
     private MailSemaphoreRepository mailSemaphoreRepository;
+
     @Override
     public void save(Long mailId, int maxRetryCount) {
         MailSemaphore mailSemaphore = new MailSemaphore();

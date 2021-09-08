@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class SendMailRequest {
+
     private String templateCode;
     private String to;
     private List<MailParamDTO> subjectParams = new ArrayList<>();

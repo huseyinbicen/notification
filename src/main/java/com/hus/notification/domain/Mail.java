@@ -11,6 +11,7 @@ import java.util.Objects;
 @Entity
 @Where(clause = BaseEntity.SOFT_DELETE_CLAUSE)
 public class Mail extends BaseEntity {
+
     private String mailTemplateCode;
     @Column(name = "[from]")
     private String from;

@@ -15,6 +15,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2).select()
@@ -23,6 +24,7 @@ public class SwaggerConfig {
                 .paths(PathSelectors.regex("/.*"))
                 .build().apiInfo(apiEndPointsInfo());
     }
+
     private ApiInfo apiEndPointsInfo() {
         return new ApiInfoBuilder().title("notification Service Rest API")
                 .description("It's mail service for other services")

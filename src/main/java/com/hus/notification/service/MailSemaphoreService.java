@@ -5,6 +5,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface MailSemaphoreService {
+
     void save(Long mailId, int maxRetryCount);
 
     @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED)

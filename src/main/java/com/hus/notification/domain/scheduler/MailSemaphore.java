@@ -8,6 +8,7 @@ import javax.persistence.Lob;
 
 @Entity
 public class MailSemaphore extends BaseEntity {
+
     @Column(unique = true)
     private Long mailId;
     private String uuid;

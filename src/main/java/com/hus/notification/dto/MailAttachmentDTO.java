@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class MailAttachmentDTO {
+
     private byte[] file;
     private String fileName;
 

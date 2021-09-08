@@ -9,6 +9,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 public interface MailSemaphoreRepository extends JpaRepository<MailSemaphore, Long> {
+
     @Modifying(clearAutomatically = true)
     @Query(value = "UPDATE mail_semaphore  SET uuid = ?1, last_update_time = {fn NOW()}, retry_count = (retry_count + 1) WHERE uuid IS NULL", nativeQuery = true)
     int markForScheduling(String uuid);

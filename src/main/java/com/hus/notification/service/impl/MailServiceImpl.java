@@ -19,10 +19,13 @@ import org.springframework.util.StringUtils;
 @Service
 @Transactional
 public class MailServiceImpl implements MailService {
+
     @Autowired
     private MailRepository mailRepository;
+
     @Autowired
     private MailTemplateService mailTemplateService;
+
     @Autowired
     private MailSemaphoreService mailSemaphoreService;
 
@@ -38,9 +41,9 @@ public class MailServiceImpl implements MailService {
         }
 
         String subjectTemplate = mailTemplate.getSubjectTemplate();
-        if (sendEmailRequest.getSubjectParams() != null){
-            for (MailParamDTO mailParamDTO : sendEmailRequest.getSubjectParams()){
-                subjectTemplate = StringUtils.replace(subjectTemplate,mailParamDTO.getKey(),mailParamDTO.getValue());
+        if (sendEmailRequest.getSubjectParams() != null) {
+            for (MailParamDTO mailParamDTO : sendEmailRequest.getSubjectParams()) {
+                subjectTemplate = StringUtils.replace(subjectTemplate, mailParamDTO.getKey(), mailParamDTO.getValue());
             }
         }
         mail.setSubject(subjectTemplate);

@@ -10,6 +10,7 @@ import java.util.Objects;
 @Entity
 @Where(clause = BaseEntity.SOFT_DELETE_CLAUSE)
 public class MailAttachment extends BaseEntity {
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "mail_id")
     private Mail mail;

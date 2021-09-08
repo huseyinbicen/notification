@@ -3,6 +3,7 @@ package com.hus.notification.dto.create;
 import javax.validation.constraints.Email;
 
 public class CreateMailTemplateDTO {
+
     private String code;
     private String subjectTemplate;
     private String bodyTemplate;

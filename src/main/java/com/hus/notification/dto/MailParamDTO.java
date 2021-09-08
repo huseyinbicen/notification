@@ -3,6 +3,7 @@ package com.hus.notification.dto;
 import java.util.Objects;
 
 public class MailParamDTO {
+
     private String key;
     private String value;
 

@@ -17,23 +17,23 @@ import java.util.Arrays;
 @Service
 @Transactional
 public class MailTemplateServiceImpl implements MailTemplateService {
+
     @Autowired
     private MailTemplateRespository mailTemplateRespository;
 
     @Override
     public String saveMailTemplate(CreateMailTemplateDTO createMailTemplateDTO) {
         String result = "";
-        try{
+        try {
             MailTemplate checkMailTemplate = this.checkAndGetMailTemplate(createMailTemplateDTO.getCode());
-            if (checkMailTemplate != null){
-                MailTemplate mailTemplate = new ModelMapper().map(createMailTemplateDTO,MailTemplate.class);
+            if (checkMailTemplate != null) {
+                MailTemplate mailTemplate = new ModelMapper().map(createMailTemplateDTO, MailTemplate.class);
                 Long id = this.mailTemplateRespository.saveAndFlush(mailTemplate).getId();
                 if (id != 0)
                     result = "Succesfull";
-            }
-            else
+            } else
                 result = "The row alredy exists";
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage().toString());
             result = "Failed" + e.getMessage();
         }
@@ -43,11 +43,11 @@ public class MailTemplateServiceImpl implements MailTemplateService {
     @Override
     public MailTemplate checkAndGetMailTemplate(String mailTemplateCode) {
         if (StringUtils.isEmpty(mailTemplateCode)) {
-            throw  new ValidationException(Arrays.asList(new ErrorMessage("Hata")));
+            throw new ValidationException(Arrays.asList(new ErrorMessage("error")));
         }
         MailTemplate mailTemplate = this.mailTemplateRespository.findOneByCode(mailTemplateCode);
         if (mailTemplate == null) {
-            throw  new ValidationException(Arrays.asList(new ErrorMessage("Hata")));
+            throw new ValidationException(Arrays.asList(new ErrorMessage("error")));
         }
         return mailTemplate;
     }

@@ -4,8 +4,6 @@ import com.hus.notification.repository.scheduler.MailSemaphoreRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -31,7 +29,7 @@ class MailSchedulerService {
     @Autowired
     private MailSemaphoreRepository mailSemaphoreRepository;
 
-   // @Scheduled(fixedDelayString = "${mark.fixeddelay}")
+    // @Scheduled(fixedDelayString = "${mark.fixeddelay}")
     @Transactional(isolation = Isolation.READ_UNCOMMITTED, propagation = Propagation.REQUIRES_NEW)
     public void mark() {
         try {
@@ -41,7 +39,7 @@ class MailSchedulerService {
         }
     }
 
-   // @Scheduled(fixedDelayString = "${unmark.fixeddelay}")
+    // @Scheduled(fixedDelayString = "${unmark.fixeddelay}")
     @Transactional(isolation = Isolation.READ_UNCOMMITTED, propagation = Propagation.REQUIRES_NEW)
     public void unMark() {
         try {
@@ -51,7 +49,7 @@ class MailSchedulerService {
         }
     }
 
-   // @Scheduled(fixedDelayString = "${execute.fixeddelay}")
+    // @Scheduled(fixedDelayString = "${execute.fixeddelay}")
     @Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRES_NEW)
     public void execute() {
         try {
